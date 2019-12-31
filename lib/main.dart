@@ -15,6 +15,7 @@ class _LoginState extends State<Login> {
   }
 
  
+
   String _name = " ";
   String _pass = " ";
   String useName(String name){
@@ -53,73 +54,79 @@ class _LoginState extends State<Login> {
         ),
         body: Column(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(30.0),
-             child: Center(
-               child: TextField(
-                 decoration: InputDecoration(
-                   hintText: "Username",
-                   icon: Icon(Icons.person)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+               child: Center(
+                 child: TextField(
+                   decoration: InputDecoration(
+                     hintText: "Username",
+                     icon: Icon(Icons.person)
+                   ),
+                   onChanged: (String name){
+                    useName(name);
+                   }
                  ),
-                 onChanged: (String name){
-                  useName(name);
-                 }
                ),
-             ),
+              ),
             ),
 
-            Container(
-              padding: EdgeInsets.all(30.0),
-             child: Center(
-               child: TextField(
-                 decoration: InputDecoration(
-                   hintText: "Password",
-                   icon: Icon(Icons.lock)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+               child: Center(
+                 child: TextField(
+                   decoration: InputDecoration(
+                     hintText: "Password",
+                     icon: Icon(Icons.lock)
+                   ),
+                    onChanged: (String pass){
+                     passWord(pass);
+                   }
                  ),
-                  onChanged: (String pass){
-                   passWord(pass);
-                 }
                ),
-             ),
+              ),
             ),
 
-            Container(
-              padding: EdgeInsets.all(30.0),
-               child: Row(
-                children: <Widget>[
-                Container(
-                  child: Checkbox(
-                    value: _isChecked,
-                    onChanged: (bool result){
-                      check(result);
-                    }
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                 child: Row(
+                  children: <Widget>[
+                  Container(
+                    child: Checkbox(
+                      value: _isChecked,
+                      onChanged: (bool result){
+                        check(result);
+                      }
+                    ),
                   ),
-                ),
-                 Text("Are you agree?"),
-                ],
-               ),
+                   Text("Are you agree?"),
+                  ],
+                 ),
+              ),
             ),
                   
-            
             Container(
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: <Widget>[
-                 Container(
-                   child: Center(
-                     child: RaisedButton(
-                       child: Text("Login"),
-                       onPressed: ()=> results(_result),
-                       color: Colors.blue,
-                     ),
-                   ),
-                 ),
-               ],
-             ),
+              width: 300.0,
+              child: RaisedButton(
+                child: Text("Login",style: TextStyle(fontSize: 32.0,
+                fontWeight: FontWeight.bold,
+                ),),
+                onPressed: ()=> results(_result),
+                color: Colors.blue,
+               ),
             ),
-
-            Container(
-              child: Text(_result),
+             
+      
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container( 
+                height: 50.0,
+                child:Card(
+                  child: Text(_result),
+                )
+              ),
             ),
 
           ],
